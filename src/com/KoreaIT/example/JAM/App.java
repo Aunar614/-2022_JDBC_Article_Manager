@@ -40,7 +40,7 @@ public class App {
 			try {
 				conn = DriverManager.getConnection(url, "root", "");
 
-				int actionResult = doAction(conn, sc, cmd);
+				int actionResult = action(conn, sc, cmd);
 
 				if (actionResult == -1) {
 					break;
@@ -63,20 +63,15 @@ public class App {
 		}
 	}
 
-	private int doAction(Connection conn, Scanner sc, String cmd) {
+	private int action(Connection conn, Scanner sc, String cmd) {
 
 		if (cmd.equals("exit")) {
 			System.out.println("프로그램을 종료합니다");
 			return -1;
 		}
 
-		MemberController memberController = new MemberController();
-		memberController.setConn(conn);
-		memberController.setScanner(sc);
-
-		ArticleController articleController = new ArticleController();
-		articleController.setConn(conn);
-		articleController.setScanner(sc);
+		MemberController memberController = new MemberController(conn, sc);
+		ArticleController articleController = new ArticleController(conn, sc);
 
 		if (cmd.equals("member join")) {
 
