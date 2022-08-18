@@ -14,7 +14,7 @@ public class App {
 	public void run() {
 
 		Container.sc = new Scanner(System.in);
-		
+
 		Container.init();
 
 		while (true) {
@@ -37,7 +37,7 @@ public class App {
 
 			try {
 				conn = DriverManager.getConnection(url, "root", "");
-				
+
 				Container.conn = conn;
 
 				int actionResult = action(cmd);
@@ -80,6 +80,10 @@ public class App {
 		} else if (cmd.equals("member login")) {
 
 			memberController.login(cmd);
+
+		} else if (cmd.equals("member profile")) {
+
+			memberController.showProfile(cmd);
 
 		} else if (cmd.equals("article write")) {
 
