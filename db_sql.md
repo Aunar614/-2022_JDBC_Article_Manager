@@ -42,6 +42,21 @@ loginPW = 'test2',
 ALTER TABLE article ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER updateDate;
 DESC article;
 
+ # 임시 게시글 데이터
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목1',
+`body` = '내용1',
+memberId = 1;
+
+INSERT INTO article
+SET regDate = NOW(),
+updateDate = NOW(),
+title = '제목2',
+`body` = '내용2',
+memberId = 2;
+
 INSERT INTO article
 SET regDate = NOW(),
 updateDate = NOW(),
