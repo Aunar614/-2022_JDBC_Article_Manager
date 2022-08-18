@@ -81,6 +81,10 @@ public class App {
 
 			memberController.login(cmd);
 
+		} else if (cmd.equals("member logout")) {
+
+			memberController.logout(cmd);
+
 		} else if (cmd.equals("member profile")) {
 
 			memberController.showProfile(cmd);
